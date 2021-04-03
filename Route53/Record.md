@@ -1,0 +1,1 @@
+A record is a dns name in Route53 that is bind to instance IP or any IP.

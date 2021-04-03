@@ -1,0 +1,2 @@
+- VPC is region based
+- VPC contains subnets which put more restriction over network access.

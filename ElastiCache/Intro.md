@@ -1,0 +1,1 @@
+Cache service managed by the AWS.
