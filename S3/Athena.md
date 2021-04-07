@@ -1,4 +1,4 @@
-It is a serverless service to analys data directly against S3 files.
+It is a serverless service to analyse data directly against S3 files.
 
 # Characterists
 - Uses SQL underneath
