@@ -19,7 +19,7 @@ We can easily integrate it with
 
 2. Cognito Identity Pools (Federated Identity)
 ## Intro
-Giving an identity to the bunch of users so that they can access AWS services.(Basically giving them temporary AWS credentials with constraints attached)
+Giving an identity to the bunch of users so that they can access AWS services.(Basically giving them temporary AWS credentials in exchange of credentials with constraints attached)
 ## Characteristic
 - Identity Source can include
     - Federated Login
@@ -29,8 +29,11 @@ Giving an identity to the bunch of users so that they can access AWS services.(B
     - Even a unauthenticated Guest Access
 - Users have an IAM policy
 - The same IAM policy can customized based on the user_id or any entity you like which can be available as a variable to policy object.
+- AWS services can then be accessed through API gateway or even directly(Say using SDK)
 
-3. Cognito Sync
+3. Cognito Sync (Deprecated)
 ## Intro
-
+Used to store store preferences, config, state of app
 ## Characteristic
+- Cross device synchronization
+- Offline synchronization
