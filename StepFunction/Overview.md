@@ -1,4 +1,4 @@
-Allows you to build serverless visual workflow
+Allows you to build serverless visual workflow using lambda function
 
 # Features
 - Sequence

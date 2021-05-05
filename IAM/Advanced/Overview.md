@@ -9,10 +9,10 @@ let DENY=false;
 
 const resultFromEvaluation = EvaludateAllApplicablePolicies();
 
-if (explicitDeny) {
+if (explicitDeny === 'True') {
     return false;
 } else {
-    if (resultFromEvaluation) {
+    if (resultFromEvaluation === 'True') {
         return true;
     } else {
         return false;
@@ -52,9 +52,8 @@ E.g One Policy that give user access to only their bucket.
 - Policy is deleted if you delete principal
 
 # Granting a User Permission to Pass a Role to an AWS Service.
-- Must attach IAM permission
-iam:PassRole to user
-- You should also attach iam:GetRole to view the role
+- Must attach IAM permission `iam:PassRole` to user
+- You should also attach `iam:GetRole` to view the role
 E.g this policy means User can only Pass S3 role to AWS service
 ```
 {

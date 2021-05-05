@@ -4,8 +4,9 @@ The source of Publish can be one and receivers can be multiple with the subscrip
 
 # Terminologies
 - Publisher - Something which pushes message to SNS.
-- Topic - Topic can be a entity for separating same type of notification in a single line. Max - 100000. 
-E.g `Transaction` - For all transaction related notification, `Deposit` - For deposit related notification.
+- Topic - Topic can be a entity for separating same type of notification in a single line. 
+  - Max - 100000. 
+  - E.g `Transaction` - For all transaction related notification, `Deposit` - For deposit related notification.
 - Subscriber - Any entity that has subscribed to recieve the notifications c. Max = 10000000.
     Can be
     - SQS
@@ -15,7 +16,7 @@ E.g `Transaction` - For all transaction related notification, `Deposit` - For de
     - SMS message
     - Mobile notification
 
-> Note: SNS is already  and can be integrated with lots of AWS services
+> Note: SNS is already and can be integrated with lots of AWS services
 
 # Types of Publish
 ## Topic Publish

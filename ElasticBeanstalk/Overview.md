@@ -23,7 +23,7 @@ It will first deploy 1st batch & then 2nd & so on..
 Same as Rolling but now we will first be allocating extra batch apart from the existing instances.Say for 4 instances, we will first deploy second version to 2 extra instances & perform the rolling on existing instances.
 ### Characteristic
 - Additional Cost (extra instances)
-- Can se Bucket size.
+- Can set Bucket size.
 - At some points runs both the version(new & old)
 - Application don't run below capacity
 - Duration: Can be long

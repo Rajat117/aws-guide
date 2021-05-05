@@ -8,6 +8,7 @@ Lambda is a serverless utility managed by AWS. In Lambda we can write a script o
 - Can be 
     1. Synchronous
     2. Asynchronous
+        - Maximum Age of event = 6 hr    
 # Advantages
 - Low Price.
 - Available for many programming languages.
@@ -48,9 +49,9 @@ Its a synchronous invocations of setting up a event that can poll the streams of
 # Queues & Lambda
 # SQS & Lambda
 
-> Note: `--innvoation type Event` - async
+> Note: `--innvoation type Event` - async cli
 
-# Lamdda & IAM Execution
+# Lambda & IAM Execution
 ## Some Sample roles
 - `AWSLambdaBasicExecutionRole` - Upload logs to CloudWatch.
 - `AWSLambdakinesis Execution Role` - Read from Kinesis
@@ -64,9 +65,9 @@ Its a synchronous invocations of setting up a event that can poll the streams of
 # Lambda Resource Based Policy
 Use resource based policy to allow other services to access your Lambda resources.
 ### Conditions for IAM principal to access Lambda
-    - if the IAM policy attached to the principal authorizes it<br />
+- if the IAM policy attached to the principal authorizes it <br />
     OR<br/>
-    - if the resource based policy authorizes.
+- if the resource based policy authorizes.
 
 # Environment Variables
 ## Characteristic
@@ -111,8 +112,8 @@ AWS lambda function by default is not launched in your VPC(Its launched in AWS o
 - RAM
     - `Min = 128MB` | `Max = 3008MB` (INcreases in the 64MB increment).
     - vCPU - `directlyProportionTo` - RAM
-    - 1798MB RAM === 1vCPU
-    - After 1798MB RAM you get another vCPU.
+    - 1792MB RAM === 1vCPU
+    - After 1792MB RAM you get another vCPU.
     - > Note: For computation heavy function increase RAM
 - Timeout
     - `Default = 3sec` | `Min = 1 sec` | `Max = 15mins`  
@@ -143,6 +144,7 @@ A temporary runtime env that initializes any external dependancies of your lambd
 # Lambda with CloudFormation
 ## Characteristic
 - You can paste your lambda function code in your cloudformation template only if it don't have any external dependencies.
+  - Use the `Code.ZipFile` property
 - To refer Lambda function with dependencies(included or not), you can refer it using S3 parameters for Lambda function in template.(You upload file in S3 & refer it in template).
 
 # Lambda Layers
@@ -159,16 +161,21 @@ E.g.
 # Lambda Versions & Alias
 ## Versions
 As the name indicates we can have version of our lambda function code. Each deployed version is immutable except `$LATEST version`(Can't be changed).
+- Version have their own ARN
 ## Aliases
 Alias can help you point to different versions.Alias are mutable.
 E.g `Dev` Alias can point to `$LATEST` version & `Prod` alias can point to `V1`
 - Advantage of Blue/Green Deployment.(I might have mentioned it somewhere else(Probably Stages in Beanstalk) in the doc. Please search for it. I will add a link to that piece of code if I remember this)
+- Aliases have their own ARN as well.
+- Aliases can not reference other aliases.
 
 # Lambda with CodeDeploy
 
 # Lamda Limits
 Per Region
 ## Execution
+- Memory allocation: 128MB - 10GB.
+- Max execution time: 15 min.
 - Env Variables can be of upto 4KB
 - `/tmp` - has 512MB & can be used for disk space
 ## Deployment

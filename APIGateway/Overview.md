@@ -7,7 +7,7 @@ API
 - Support for Swagger & Open API
 - Caching, Throttling
 - Generate specifications for SDK & API
-- Support for AWS Lambda.WebSocker Protocol
+- Support for AWS Lambda, WebSocket Protocol
 
 # Integrations with
 - Lambda Function

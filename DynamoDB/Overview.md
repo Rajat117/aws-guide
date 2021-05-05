@@ -5,7 +5,22 @@ Serverless NoSQL DB managed by AWS.
 - Fast & Consistent
 # Basic
 
-# Types
+# WCU - Write Capacity Units
+- 1 WCU = 1 write/s for an item of 1 KB in size.
+- Formula = `Number of objects per sec * KB size`
+- E.g 
+  - WCU for 120 objects/min of 2KB each will be `4 WCU [ (120/60) * 2 ]`;
+  - WCU for 6 objects/sec of 4.5 KB(Will have to pick upperbound for decimal number) each will be `30 WCU [6 * 5]`
+  
+> Note: DynamoDB by default uses `Eventual Consistents Read(ECR)` but we can have `Strongly Consistent Read(SCR)` (At the cost of the  delay)
+
+# RCU - Read Capacity Units
+- 1 RCU = 1 SCR read/s for an item of 4 KB in size.
+- ||
+- 1 RCU = 2 ECR read/s for an item of 4 KB in size.
+- Formula = `Number of SCR per sec *  (KB size/4KB) ` & `(Number of ECR per sec)/2 * (KB size/4KB)`
+- E.g
+  - RCU for 10 SCR per seconds of 6 KB (Upperbound here as well for not divided by 4 number) each will be `20 [10 * 8/4]`
 
 ## DynamoDB - Writing Data
 - `Putltem` - Write data to Dynamo DB (create data or full replace)
@@ -50,7 +65,7 @@ calls done against DynamoDB
 ## DynamoDB – Query
 - Query returns items based on:
     - PartitionKey value (must be = operator)
-- SortKey value (=;<,<=,>, >=, Between, Begin) - optional
+- SortKey value (=,<,<=,>, >=, Between, Begin) - optional
 - FilterExpression to further filter (client side filtering)
 - Returns:
     - Up to 1 MB of data

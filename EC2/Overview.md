@@ -13,7 +13,7 @@ A regional Service that provides compute to run your application in the cloud.
 - G - Group
 - O - Others
 --------------------------
-> Note: By Default Secret pem file permissions = 0644(UGO). We need to change it to 400
+> Note: By Default Secret pem file permissions = 644(UGO). We need to change it to 400
 
 ## SSH Using Windows (Window < 10)
 WIndows < 10 don't have SSH utility. So we have to use `PUTTY` there.
@@ -89,10 +89,10 @@ A script that will run at bootup of your machine. You can place any script you w
   - Short workload ones
   - You can lose instances so less reliable.
   - Upto 90% discount.
-Dedicated Instances
+- Dedicated Instances
   - Don't wanna share hardware with other customer.
   - No control over instance placement
-Dedicated Host
+- Dedicated Host
   - Have an entire physical server for yourself.
   - 3 year period reservation.
   - Costly.

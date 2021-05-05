@@ -11,6 +11,7 @@ IO1 Use Case
 - Max IOPS - 64000 (For Nitro) or 32000 (For Others)
 - Can Allocate - 4GiB - 16TiB
 - Size of volumnes and IOPS are independent.
+- Multi-Attach Capability
 
 ST1 Use Case
 - Can Allocate - 500GiB - 16TiB 

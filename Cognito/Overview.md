@@ -11,7 +11,7 @@ Creates a serverless database for you to manage your application user.
 - MFA
 - Federated Identities: Users from FB, Google, SAML, OpenId Connect
 - Can block users if their credentials are compromised
-- On Login it return back JWT.
+- On Login it returns back JWT.
 ## Integration
 We can easily integrate it with
 - API Gateway
@@ -28,7 +28,7 @@ Giving an identity to the bunch of users so that they can access AWS services.(B
     - Developer Authenticated Identities (Custom login)
     - Even a unauthenticated Guest Access
 - Users have an IAM policy
-- The same IAM policy can customized based on the user_id or any entity you like which can be available as a variable to policy object.
+- The same IAM policy can be customized based on the user_id or any entity you like which can be available as a variable to policy object.
 - AWS services can then be accessed through API gateway or even directly(Say using SDK)
 
 3. Cognito Sync (Deprecated)

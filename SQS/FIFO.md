@@ -7,7 +7,7 @@ FIFO : First In First Out
 # DeDuplication
 A feature that refuse to send the same message.
 ## Types of DeDuplication 
-- Content-based deduplication: will do SHA-256 hash of the body.
+- Content based deduplication: will do SHA-256 hash of the body.
 - Message DeDuplication ID based deduplication: Add a unique id to the message
 
 # Message Grouping

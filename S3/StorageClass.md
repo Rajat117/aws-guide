@@ -17,7 +17,7 @@ Suitable for data is less frequenctly accessed, but requires rapid access when n
 ## Use Cases
 - Data recovery warehouse or backup option
 
-3. S3 One Zone-Infrequent Access
+# S3 One Zone-Infrequent Access
 Same as IA but data is stored in only one AZ
 ## Characteristic
 - Same Durability
@@ -31,7 +31,8 @@ Same as IA but data is stored in only one AZ
 ## Use Cases
 - Storing secondary backup copies
 
-4. S3 Intelligent Tiering
+# S3 Intelligent Tiering
+Adjust b/w storage classes automatically.
 ## Characteristic
 - High availability(99.99%)
 - Small low latency and high throuput performance of S3 standard.

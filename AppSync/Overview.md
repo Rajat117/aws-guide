@@ -16,4 +16,4 @@ It is a managed services that uses GraphQL
 - Cognito User Pool
 - IAM 
 
-> Note: AppSync is kind of a replace for outdated Cognito Sync
+> Note: AppSync is kind of a replacement for outdated Cognito Sync
