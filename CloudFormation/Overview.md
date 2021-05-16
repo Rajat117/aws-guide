@@ -1,5 +1,5 @@
 A way for you to define the infrastructure for your application through code(basically YAML & JSON file).
-You can assign ec2 instance,security-groups & soon.., change their configuration & much more.
+You can assign ec2 instance,security-groups & so on.., change their configuration & much more.
 
 # Benefits
 - We can use the same template with a little bit of tweak if we wants it again.(Saves lot of time).
@@ -36,13 +36,13 @@ Way to provide inputs to your templates. Its just like declaring a variable for 
 - Have multiple types (String, Number, List etc)
 - Can put constraints
 - Can ref another Resource using `key: !Ref anotherKeyId` (You will understand in second when u will look at any sample template).
-e.g
-```
-Parameters:
-    SecurityGroupDescription
-        Description: Security Group Description Bla Bla
-        Type: String
-```
+- E.g
+    ```
+    Parameters:
+        SecurityGroupDescription
+            Description: Security Group Description Bla Bla
+            Type: String
+    ```
 ### Pseduo Parameters
 They are some key:value(E.g `AWS::AccountId:1234567890` will refer to a pseudo account) pair which are already there for us. We can use these for mock testing kind of stuff
 ## Mapping
@@ -91,7 +91,8 @@ Resource:
 - Optional
 - Can be viewed in console or CLI
 - Uses `!ImportValue ExportedName` to locate value
-> Note: You can't delete template if its component is being referenced in other template
+> Note: You can't delete template if its component is being referenced in other template.
+
 > Note: The exported output name must be unique in the region.
 ## Conditional
 Using conditionals statement in template for Resource, Condition & Output.
