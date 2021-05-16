@@ -1,1 +1,0 @@
-Same as [RDS](#RDS-Security-encryption-operation)

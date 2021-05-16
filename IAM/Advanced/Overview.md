@@ -7,12 +7,12 @@ var explicitDeny = `True/False`;
 
 let DENY=false;
 
-const resultFromEvaluation = EvaludateAllApplicablePolicies();
+const isAllowedFromEvaluation = EvaluateAllApplicablePolicies();
 
 if (explicitDeny === 'True') {
     return false;
 } else {
-    if (resultFromEvaluation === 'True') {
+    if (isAllowedFromEvaluation === 'True') {
         return true;
     } else {
         return false;
@@ -23,11 +23,11 @@ if (explicitDeny === 'True') {
 # IAM Policies & S3 Bucket Policies
 Its as simple as this
 
-const resultFromEvaluation = IAMPolicyEvaluation() U(Union) S3BucketPolicy();
+const isAllowedFromEvaluation = IAMPolicyEvaluation() U(Union) S3BucketPolicy();
 
 # Dynamic Policies with IAM
 Make policies dynamic by using env or dynamically available variable.
-E.g One Policy that give user access to only their bucket.
+E.g One Policy that give user access to bucket with their username only.
 ```
 {
     $id: "AllowActionInS3",
@@ -38,18 +38,12 @@ E.g One Policy that give user access to only their bucket.
 ```
 
 # Inline Vs Managed Policy
-1. Managed
-- Manatained By AWS
-- Suitable for admin level user
-- Updated in case of new service/new API
-2. Customer Managed
-- Full control & managed by user.
-- re-usable.
-- version controlled + rollback.
-- best practice.
-3. Inline
-- Strict 1-to-1 relnship b/w policy & principal
-- Policy is deleted if you delete principal
+| Managed                                | Customer Managed                | Inline                                        |
+|:--------------------------------------:|:-------------------------------:|:---------------------------------------------:|
+| Manatained By AWS                      | Fully control & managed by user | Strict 1-to-1 relnship b/w policy & principal | 
+| Suitable for admin level user          | Re-usable                       | Policy is deleted if you delete principal     | 
+| Updated in case of new service/new API | Version controlled + Rollback   |                                               |
+|                                        | Best practice                   |                                               | 
 
 # Granting a User Permission to Pass a Role to an AWS Service.
 - Must attach IAM permission `iam:PassRole` to user
@@ -68,4 +62,4 @@ E.g this policy means User can only Pass S3 role to AWS service
 }
 ```
 
-> Note: Roles can be passed on the basis of what their servies's trust allows.(There is a trust relationship b/e aws service. You might be able to see it in the console). 
+> Note: Roles can be passed on the basis of what their servies's trust allows.(There is a trust relationship b/w aws service. You might be able to see it in the console). 

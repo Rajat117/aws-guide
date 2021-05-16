@@ -11,7 +11,7 @@ X-Ray can be considered as an debugging utility. But the way it does that is so 
     - IAM (Obvious)
 # Compatibility
 - EC2 instance(Obvious thing) or any application server(even on-premise)
-- Elastic BanStalk
+- Elastic BeanStalk
 - Lambda
 - ECS
 - API GateWay
@@ -63,7 +63,7 @@ BeanStalk already include the deamon<br />
 Options to enable it
 - Using Console
 - Using configuration file
-    (
+    (<br>
         In `.ebextensions/xray-daemon.config` use
     ```
     option_setting:

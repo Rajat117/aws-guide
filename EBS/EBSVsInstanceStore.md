@@ -1,1 +1,0 @@
-Instance Store - Ephemeral storage

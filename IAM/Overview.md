@@ -4,7 +4,7 @@ A region independent, global service that is a just like RBAC or ACL but much mo
 # Characteristic
 - Permission are governed by policy (JSON object)
 - MFA
-- Alrady has managed poilcy
+- Already has managed poilcy
 # IAM Federation
 - For big companies. It uses SAM standard.
 # Best Practices

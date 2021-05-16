@@ -2,8 +2,8 @@ A way for you to define the infrastructure for your application through code(bas
 You can assign ec2 instance,security-groups & soon.., change their configuration & much more.
 
 # Benefits
-- We can use the same template with a little bit of twek if we wanted again.(Saves lot of time).
-- Declarative programmin.(Don't have to worry about ordering & filtering).
+- We can use the same template with a little bit of tweak if we wants it again.(Saves lot of time).
+- Declarative programming.(Don't have to worry about ordering & filtering).
 - You can have separate file for each stack.(So its not a tightly coupled system).
     - EC2 stack
     - VPC stack
@@ -30,16 +30,23 @@ E.g Ec2, ELB, VPC
 - Around 224 types
 - Resource Type Identified -> `AWS::aws-product-name::data-type-name` (E.g `AWS::EC2::Instance`)
 ## Parameters
-Way to provide inputs to your templates
+Way to provide inputs to your templates. Its just like declaring a variable for your function.
 ### Characteristic
-- Can be dynamci (E.g providing key-pair)
-- Have multiple Type,
-- Can put Constrainsts
-- Can ref another Resource usin `key: !Ref anotherKeyId` (You will understand in second when u will look at any sample template).
+- Can be dynamic (E.g providing key-pair)
+- Have multiple types (String, Number, List etc)
+- Can put constraints
+- Can ref another Resource using `key: !Ref anotherKeyId` (You will understand in second when u will look at any sample template).
+e.g
+```
+Parameters:
+    SecurityGroupDescription
+        Description: Security Group Description Bla Bla
+        Type: String
+```
 ### Pseduo Parameters
 They are some key:value(E.g `AWS::AccountId:1234567890` will refer to a pseudo account) pair which are already there for us. We can use these for mock testing kind of stuff
 ## Mapping
-They are kind of static variables & can be differen for the different environment (e.g. dev, prod, staging). Its just like chosing your env variables based on your environment type
+They are kind of static variables & can be different for the different environment (e.g. dev, prod, staging). Its just like chosing your env variables based on your environment type
 If you are familiar with F.E this is like `sass`.
 ### Characteristic
 - Quite Handy
@@ -49,7 +56,10 @@ e.g
 Mappings:
     RegionMap:
         'ap-south-1': 
-            '32': 'amiId1',
+            '32': 'amiId1'
+            '64': 'amiId2'
+        'ap-south-2':
+            '32': 'amiId1'
             '64': 'amiId2'
 Resource:
     MyEC2:
@@ -57,7 +67,7 @@ Resource:
             ImageId: !FindInMap [RegionMap, 'ap-south-1', 64]
 ```
 ## Output
-Outputs allows us the export our one component into another template.
+Outputs allows us the export of our one component into another template.
 E.g We can output the resultant id of the vpc we created in our template & import it in
 other template.
 ```
@@ -81,11 +91,14 @@ Resource:
 - Optional
 - Can be viewed in console or CLI
 - Uses `!ImportValue ExportedName` to locate value
-> Note: You can't delete template if its component is being refernced in other template
+> Note: You can't delete template if its component is being referenced in other template
+> Note: The exported output name must be unique in the region.
 ## Conditional
-Using conditionals statement in template
+Using conditionals statement in template for Resource, Condition & Output.
 E.g the below statment set CreateProdResource to true if EnvType === Prod
 ```
+Parameters:
+    EnvType: 'prod'
 Conditions:
     CreateProdResources: !Equals [!Ref EnvType, prod]
 ```
@@ -99,11 +112,14 @@ Resources:
 ### Characteristic
 - Can be used to create env based outputs from your template.
 ## MetaData
-- Some metadata u want to attach to component
+- Some metadata you want to attach to component
 
 # Intrinsic Functions
 - Must know list
-    - Fn::Ref
+    - Fn::Ref 
+        - Used to Reference 
+            - Parameter (Get value of paramter)
+            - Resources (Get physical id of the resource)
     - Fn::GetAtt
         - Get attributes of a component
     - Fn::FindInMap
@@ -125,9 +141,15 @@ Resources:
 # ChageSets
 Before deploying the template we can use changeSets to check what really has changed & finally after review can deploy it.
 
+# Nested Stacks
+They are just like isolating a common logic into a separate function & use it as many times as you need that logic. So its just using a common behaviral stack in other higher level stack.
+
 # StackSets
 When we want to create, update & delete stack across multiple accounts & regions
 ## Characteristic
-- Only administrator to create stack.
-- Trust account do CRUD.
-- Update will happen across every regions & accounts.
+- Only administrator can create stack.
+- Trust account can use CRUD.
+- Update on stackset will happen across every regions & accounts.
+
+# Cloudformation Drift
+CloudFormation gives you a feature to check if your template configuration stack has drifted somehow.(Some one might have manually added a new target group to load balancer).

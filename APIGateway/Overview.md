@@ -1,4 +1,4 @@
-API
+A api gateway is a wall standing b/w your applications & traffic. You are going to your instances through the api gateway filter.
 
 # Characteristic
 - Versioning
@@ -21,7 +21,7 @@ Deployed in one region but easily accessible on all edge location
     - Reduces Latency(Since requests are routed through CloudFront Edge Location)
 - Regional:
 For handling users in the same region.
-    - Can be manually combined with CloudFront to have more control over caching. response transforming, rate limiting etc.
+    - Can be manually combined with CloudFront to have more control over caching, response transforming, rate limiting etc.
 - Private
 It is deployed within the VPC where we dunn wanna expose it to the public internet(WWW)
     - Can only be accessed from the VPC using ENI
@@ -37,7 +37,7 @@ Deployment stages can be considered as an environment for our application (dev, 
 - Can be rolled back to previous deployment 
 ## Stage Variable
 Kind of an env variable for your integrated service.
-We can use this variable to route traffic to our different lambda function/application.
+We can use this variable to route traffic to our different lambda functions or applications.
 > Note: You will have to create resource based policy to allow access from your gateway to a resource when allowing dynamic access
 
 # Canary Deployment
@@ -49,9 +49,10 @@ By Canary Deployment we can allow only some % of the traffic to be redirected to
 
 # Mapping
 > Prerequisite: If you will do a hands on of APIGateway, you will see that there is always an option to proxy request directly to integration type.
-Mapping is changing request & response(headers, payload etc)as per the need of your application or any other scenario. 
-> Note: Mapping is done by
-`VTL: Velocity Template Language`
+
+Mapping is changing request & response(headers, payload etc)as per the need of your application or any other scenario.
+
+> Note: Mapping is done by `VTL: Velocity Template Language`
 ## For Proxy Based Integration
 We can't use mapping of request & response(be it payload, query string param, header) since it directly goes to integrated entity
 ## For Non Proxy Based Integration
@@ -63,11 +64,11 @@ E.g Converting SOAP payload from client to JSON format & pass it to integrated e
 - Defined per stage
 - Can be overriden for a particular method as well
 - Encryption possibility
-- Capcity = 0.5GB - 237GB
+- Capacity = 0.5GB - 237GB
 - Expensive operation
 ## Invalidate Cache
 - We can flush it from console
 - Clients can invalidate if they set header
-`Cache-Control: max-age=0`(Only if authorized or no authorization is there to invalidate it)
+`Cache-Control: max-age=0` (Only if authorized or no authorization is required to invalidate it)
 
 

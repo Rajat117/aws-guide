@@ -1,7 +1,7 @@
 CloudWatch gives us (metric, alarm, logs & event based reaction) - (Monitoring) features to us.
 Let's talk about each feature.
 # Metrics
-A variable to monitor e.g CPUUtilization, Network usage, bandwidth
+A variable to monitor e.g CPU Utilization, Network usage, bandwidth
 ## Metric have
 - Dimension - The attribute of a metric (instanceid, env)
 - TimeStamp - You know it.
@@ -37,7 +37,7 @@ Sending Alarms based on metrics. We can send notification to any service, trigge
 > Note: To send logs to CloudWatch, IAM permission must be there & shoukd be valid.
 - Encryption: Using KMS at rest.
 ## CloudWatch Agent (Old)
-A Agent can be used to send logs from your EC2 instance to Cloudwatch to alter the default behaviour(by default it Cloudwatch don't catch logs from EC2)
+An Agent can be used to send logs from your EC2 instance to Cloudwatch to alter the default behaviour(by default Cloudwatch don't catch logs from EC2)
 ### CloudWatch Agent Characteristic
 > Note: Make Sure IAM permissions are valid
 - Can be setup on-premises too.

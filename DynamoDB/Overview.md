@@ -1,6 +1,7 @@
 Serverless NoSQL DB managed by AWS.
+
 # Characteristic
-- Replication across 3 AZ
+- Replication across 3 AZ's
 - Scale to massive workloads automatically
 - Fast & Consistent
 # Basic
@@ -35,7 +36,7 @@ Possibility to use Atomic Counters and increase them
 - `Deleteltem`
     - Delete an individual row
     - Ability to perform a conditional delete
-- `Delete Table`
+- `DeleteTable`
     - Delete a whole table and all its items
     - Much quicker deletion than calling Deleteltem on all items
 
@@ -55,7 +56,7 @@ calls done against DynamoDB
     - Read based on Primary key
     - Primary Key = HASH or HASH-RANGE
     - Eventually consistent read by default
-    -  Option to use strongly consistent reads (more RCU - might take longer)
+    - Option to use strongly consistent reads (more RCU - might take longer)
     - ProjectionExpression can be specified to include only certain attributes
 - `Batch Getltem`
     - Up to 100 items
@@ -74,7 +75,7 @@ calls done against DynamoDB
 - Can query table, a local secondary index, or a global secondary index
 
 ## Dynamo DB - Scan
-- Scan the entire table and then filter out data (inefficient)
+- Scan the entire table to filter out data (inefficient)
 - Returns up to 1 MB of data – use pagination to keep on reading
 - Consumes a lot of RCU
 - Limit impact using Limit or reduce the size of the result and pause
@@ -124,7 +125,7 @@ We can delete rows based on TTL we set
 ## Characteristic
 - No extra cost(no use of WCU or RCU).
 - TTL is enabled per row (a TTL column gets added with timestamp)
-- Deletes expired items withing 48hrs.(Even from GSI/LSI)
+- Deletes expired items within 48hrs.(Even from GSI/LSI)
 - Only option to recover data would be streams.(only if they are not expired as well :joy:)
 
 # DynamoDB CLI

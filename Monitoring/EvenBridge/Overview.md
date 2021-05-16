@@ -1,6 +1,6 @@
-Evolved version of CloudWatch Event
-The CloudWatch event uses default Bus created by AWS for your account. Trhough which we can connect to services existing only in AWS.
-The EventBridge allows you to have multiple buses to connect to other partenrs or (SaaS).
+Evolved version of CloudWatch Event.<br>
+The CloudWatch event uses default Bus created by AWS for your account. Through which we can connect to services existing only in AWS.
+The EventBridge allows you to have multiple buses to connect to other partners or (SaaS).
 
 # Characteristic
 - Multiple buses
@@ -10,6 +10,6 @@ The EventBridge allows you to have multiple buses to connect to other partenrs o
 # Schema Registry
 EventBridge analyze the events in your bus and generate a default schema out of it.
 ## Benefit
-- You application code will know in advsance how to access it.
+- You application code will know in advance how to access it.
 ## Characteristic
 - Can be versioned

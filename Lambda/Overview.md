@@ -18,15 +18,13 @@ Lambda is a serverless utility managed by AWS. In Lambda we can write a script o
 
 # Lamdba@Edge
 It's basically used alongside  CDN (say CloudFront).If we want to trigger a lambda function on each edge location or want to perform request filtering before or after reaching your application.
-
-# Scenarios where it can be used:
+## Scenarios where it can be used:
 - Can use it to change CloudFront request & response. You can perform
     - Viewer request - (As soon as CloudFront receives a request from a viewer).
     - Origin request - (Before sending request to application/origin)
     - Origin response - (After receiving response from the server)
     - Viewer Resoponse - (Before CloudFront fwds the response to the viewer).
-
-# Use Case
+## Use Case
 - Website Security & Privacy.
 - Authorization & Authentication.
 - Dynamic Web Application at Edge.
@@ -39,25 +37,19 @@ Its a synchronous invocations of setting up a event that can poll the streams of
 - DynamoDB Streams
 - SQS or SQS FIFO Queue
 
-# Event Source Mapper Scaling
-1. Kinesis Data Strams & DymanoDB Streams
-2. SQS Standard
-3. SQS FIO
-
-
 # Streams & Lambda
 # Queues & Lambda
 # SQS & Lambda
 
-> Note: `--innvoation type Event` - async cli
+> Note: `--invocation type Event` - async cli
 
 # Lambda & IAM Execution
 ## Some Sample roles
 - `AWSLambdaBasicExecutionRole` - Upload logs to CloudWatch.
-- `AWSLambdakinesis Execution Role` - Read from Kinesis
-- `AWSLambdaDynamo DBExecution Role` - Read from DynamoDB Streams
-- `AWSLambdaSQSQueue`- Execution Role Read from SOS
-- `AWSLambdaVPCAccessExecution Role` - Deploy Lambda function in VPC
+- `AWSLambdaKinesisExecutionRole` - Read from Kinesis
+- `AWSLambdaDynamoDBExecutionRole` - Read from DynamoDB Streams
+- `AWSLambdaSQSQueue`- Execution Role Read from SQ  S
+- `AWSLambdaVPCAccessExecutionRole` - Deploy Lambda function in VPC
 - `AWSXRayDaemonWriteAccess` - Upload trace data to X-Ray.
 ## Best Practice
 - `One Lambda Execution Role` per `Function`
@@ -70,6 +62,7 @@ Use resource based policy to allow other services to access your Lambda resource
 - if the resource based policy authorizes.
 
 # Environment Variables
+We can have our own env variable for each lambda function.
 ## Characteristic
 - Can be encrypted using KMS
 - Lambda has its own system env variable.
@@ -79,7 +72,7 @@ Use resource based policy to allow other services to access your Lambda resource
 AWS Lambda with the help of `AWSLambdaBasicExecutionRole` role, store logs in CloudWatch.
 CloudWatch also stores the metric for your lambda function such as 
 - Invocation, Duration, Concurrent Execution
-- Error Count, throttling, success count
+- Error Count, Throttling, Success count
 - Async Delivery Failures
 - How lagging you are in your streaming of kinesis & dynamoDB
 ## XRay
@@ -120,7 +113,7 @@ AWS lambda function by default is not launched in your VPC(Its launched in AWS o
 ## Execution Context
 A temporary runtime env that initializes any external dependancies of your lambda function.
 ### Characteristic
-- It is maintained for some time in case another Lambda function might have to use it.(Avoid reinitialization).
+- It is maintained for some time in case another Lambda function or again invocation of same function might have to use it.(Avoid reinitialization).
 - It has the `/tmp` directory.
     - Can be used for file write & available for read as well in the Lambda function
     - Max size = `512 MB`;
@@ -138,7 +131,7 @@ A temporary runtime env that initializes any external dependancies of your lambd
 ### Cold Start
 - The  huge time, the first invocation of lambda function can take if it has many dependencies.
 - To solve this
-    - Concurrency is allocated even before the function is invoked.
+    - Concurrency is allocated even before the function is invoked - Provisioned Concurrency.
     - AWS has already upgraded lamda function to reduce cold start
 
 # Lambda with CloudFormation
@@ -155,15 +148,15 @@ E.g.
 - `C++`
 - `Rust`
 ## Externalize Dependancies
-- We can create layers of dependencies that don't change much each tim we update our lambda fn.
+- We can create layers of dependencies that don't change much each time we update our lambda fn.
 - Any other fn can also refer these layers.
 
 # Lambda Versions & Alias
 ## Versions
-As the name indicates we can have version of our lambda function code. Each deployed version is immutable except `$LATEST version`(Can't be changed).
+As the name indicates we can have version of our lambda function code. Each deployed version is immutable(Can't be changed) except `$LATEST version`
 - Version have their own ARN
 ## Aliases
-Alias can help you point to different versions.Alias are mutable.
+Alias can help you point to different versions. Aliases are mutable.
 E.g `Dev` Alias can point to `$LATEST` version & `Prod` alias can point to `V1`
 - Advantage of Blue/Green Deployment.(I might have mentioned it somewhere else(Probably Stages in Beanstalk) in the doc. Please search for it. I will add a link to that piece of code if I remember this)
 - Aliases have their own ARN as well.

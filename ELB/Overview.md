@@ -3,7 +3,7 @@ ELB - Elastic Load Balancer
 ELB's are AWS managed load balancer.It takes a great effort to setup a normal load balancer yourself but since ELB by AWS is already a managed service, we are left to do very minimal configurations.
 # Types
 ## Classic LB
-- Deals In
+### Deals In
   - HTTP, HTTPS (Layer 7), TCP (Layer 4)
 ## Application LB
 ### Deals In
@@ -26,10 +26,10 @@ ELB's are AWS managed load balancer.It takes a great effort to setup a normal lo
 - Deals In
   - TCP, TLS (Secure TCP) & UDP (Layer 4)
 ### Characteristic
-  - Handles millions on req/seconds
+  - Handles millions of req/seconds
   - Low latency (~100ms)
   - Has one static IP/AZ
-  - Suuport Elastic IP
+  - Support Elastic IP
 ## GateWay LB
 - Don't have anough info at the moment. Will add it surely.
 # Characteristic
@@ -38,7 +38,7 @@ ELB's are AWS managed load balancer.It takes a great effort to setup a normal lo
 - Always Redirecting traffic to a particular instance behind the LB
 ## Use Case
 - Session based app
-## Limitation
+## Limitated to only
 - ALB & CLB
 # Cross Zone Load Balancing
 - Distributing load across all EC2 instances in each zone evenly.

@@ -6,12 +6,17 @@ AWS service that lets you give identity to all the users outside your AWS. Let's
 Creates a serverless database for you to manage your application user.
 ## Characteristic
 - Simple Credential based Login (Email/Username & Password)
+- Additional Attributes can also be stored (E.g. Name, Address etc)
 - Password Reset
+  - Can set constraints on password as well (E.g Min 6 letters)
 - Phone & Email Verification
 - MFA
 - Federated Identities: Users from FB, Google, SAML, OpenId Connect
+- Already hosted UI. (Can be customized easily)
 - Can block users if their credentials are compromised
 - On Login it returns back JWT.
+## Events
+We can perform any activity like triggering a lambda funcition on certain events (Pre authentication, Post Authentication, Pre Sign Up, Post Confirmation etc, etc)
 ## Integration
 We can easily integrate it with
 - API Gateway

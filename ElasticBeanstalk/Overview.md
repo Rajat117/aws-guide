@@ -40,7 +40,7 @@ Here in this deployment the updated code is deployed on a new temporary ASG. Aft
 I dunn have the mood today to write about it. If you still see this message. I forgot about it. :sweat_smile:
 
 # LifeCycle Policy
-Setup a policy which will delete your old bundles from BeanstalkUI
+Setup a policy which will delete your old bundles from Beanstalk-UI
 ## LifeCycle Policy Characteristc
 - Options
     - Time based

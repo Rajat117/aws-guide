@@ -33,7 +33,7 @@ It does support SSH but `chmod` command does not exist. We will have to use the 
 | Can't connect after restarting instance | Check for new public IP in console | IP Changes after restart|
 
 # Security Groups
-A set of constraint we put on incoming & outgoinh traffic of our resources.
+A set of constraint we put on incoming & outgoing traffic of our resources.
 ## We can have Constraints On
     - Ports
     - IP or IP Ranges (IPv4 or IPv6 - Both)
@@ -96,7 +96,7 @@ A script that will run at bootup of your machine. You can place any script you w
   - Have an entire physical server for yourself.
   - 3 year period reservation.
   - Costly.
-  - Suitable for BYOL (Don't know about it myself).
+  - Suitable for BYOL (Don't know about it myself :sweat_smile:).
 
 # ENI
 ELastic Network Interface - A virtual network card assigned to your EC2 instances for network managment.

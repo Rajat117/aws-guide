@@ -1,6 +1,6 @@
-- Very High IOS (can reach million)
+- Very High `IOPS` (can reach million)
 - Disks up to 7.5TB (as of now)
 - Block storage - so you can have a file system
 - Fixed size
-- Can-not persist data on termination or stop of instance but survice reboot of instance.
+- Can-not persist data on termination or stop of instance but survive reboot of instance.
 - Can be used for cache 

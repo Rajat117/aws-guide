@@ -15,12 +15,12 @@ Low Latency streaming at scale.
 - To increase throuput and scalability, we can increase the number of shards.
 - Data cannot be delete in streams.It gets deleted only after its expiration interval.
 - We can replay data by going back in time. It don't get deleted till its expiration interval.
-- Multiple app can consume the same streams.
+- Multiple apps can consume the same streams.
 
 ### Shards Characteristic
 - Write Per Shard = 1 MB/s or 1000 msgs/s
 - Read Per Shard = 2 MB/s
-- We are billed on the per shard basis.(So be cautious ther).
+- We are billed on the per shard basis.(So be cautious there).
 - Availability to batch messages.
 - Reshard: Increase Number of shards.
 - Merging - Decrease Number of shards.
@@ -29,6 +29,6 @@ Low Latency streaming at scale.
 
 ## Kinesis Analytic
 Allows to perform analytics on streams using SQL
-## Kinesis Firehouse: 
+## Kinesis Firehose: 
 Allows to store stream into other AWS services like S3, Redshit, ElasticSearch.
 

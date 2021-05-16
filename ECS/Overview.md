@@ -20,7 +20,7 @@ Helps define no of task to run & how to run them.
 - Helps run no of tasks across our desired no of EC2 instances.
 - Can be linked to CLB/ALB/NLB
 - Possible to setup ASG
-- LB can be setup at creation time.
+- LB can be setup only at creation time.
 - CLB can't be setup for dynamic ports
 ## Use of Load Balancer
 If we don't forward traffic of our container to a static manually chosen port we can use load balancer to help us with that.
@@ -40,14 +40,14 @@ It is a serverless technology and we don't have to provision anything on our own
 # Fargaate Characteristic
 - No need to provision EC2 instance
 - Just need to create a task definition, our container will run automatically.
-- INcrease the task no to scale that's all there is to it.
+- Increase the task no.'s to scale that's all there is to it.
 
 # ECS IAM 
 ## EC2 Instance Profile
-- Used by the ECS agent to regsiter it into ECS
-- Makes API calls to the ECS Service
-- Send logs to CLoudWatch
-- Pull images from ECR
+- Used by the ECS agent to register it into ECS.
+- Makes API calls to the ECS Service.
+- Send logs to CLoudWatch.
+- Pull images from ECR.
 ## ECS Task Role
 - You must allow each task to have a specific role
 - Use different roles for different ECS services
@@ -83,7 +83,7 @@ It is a strategy you can use to determine how & where to place your tasks in you
     ]
     ```
 - Spread
-    - Evenly spread task across instances based on certain attribute. e.g. based on availability zones, instanceId
+    - Evenly spread task across instances based on certain attribute. e.g. based on availability zones.
     ```
     PlacementStrategy: [
         {
@@ -114,7 +114,7 @@ It is a strategy you can use to determine how & where to place your tasks in you
     ```
 
 # ECS Auto Scaling
-> Note: ECS Service Scaling(task level) != EC2 Auto Scaling(instance leve)
+> Note: ECS Service Scaling(task level) != EC2 Auto Scaling(instance level)
 
 # ECS Cluster Capacity Provider
-Since ECS Service Scaling is as scaling at the task level, it dunn provision new instance when all the instances in the cluster are at full capacity. So to solve this we can use Cluster Capacity Provider which when attached with task will  create a new instance(EC2 or Fargate(whiever you choose)) for you if current capacity is not sufficient to handle task load.
+Since ECS Service Scaling is as scaling at the task level, it dunn provision new instance when all the instances in the cluster are at full capacity. So to solve this we can use Cluster Capacity Provider which when attached with task will create a new instance(EC2 or Fargate(whichever you choose)) for you if current capacity is not sufficient to handle task load.

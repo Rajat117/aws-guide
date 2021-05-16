@@ -1,6 +1,0 @@
-- Can share data
-- CMS
-- Compatible with only Linux based AMI
-- 1000s of concurrent NFS(Net) clients
-- 10 GB+ /s throughput
-- AWS claims it can grow to Petabyte-scale
